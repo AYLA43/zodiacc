@@ -12,8 +12,23 @@ body {
   background:#0b0c1a;
   color:white;
   text-align:center;
+  overflow-x:hidden;
 }
 
+/* ⭐ Animated Stars */
+.star {
+  position:fixed;
+  width:2px;
+  height:2px;
+  background:white;
+  animation: moveStars linear infinite;
+}
+@keyframes moveStars {
+  from {transform: translateY(0);}
+  to {transform: translateY(100vh);}
+}
+
+/* Hero */
 .hero {
   padding:80px 20px;
   background:linear-gradient(135deg,#1a1c3a,#0b0c1a);
@@ -30,7 +45,7 @@ body {
 
 .book {
   background:#1a1c3a;
-  width:220px;
+  width:230px;
   padding:15px;
   border-radius:15px;
   transition:0.3s;
@@ -44,14 +59,39 @@ body {
   border-radius:10px;
 }
 
-.price {color:#ffd700; font-size:20px; margin:10px;}
+/* 💰 Price */
+.old-price {
+  text-decoration:line-through;
+  color:#aaa;
+  font-size:14px;
+}
+.price {color:#ffd700; font-size:20px;}
+.save {
+  color:#00ffcc;
+  font-size:14px;
+}
 
+/* 🛒 Button */
 button {
   background:#ffd700;
   border:none;
   padding:10px 15px;
   cursor:pointer;
   border-radius:5px;
+  font-weight:bold;
+}
+
+/* 🔔 Popup */
+.popup {
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#ffd700;
+  color:black;
+  padding:12px 20px;
+  border-radius:10px;
+  display:none;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -65,103 +105,165 @@ button {
 
 <div class="books">
 
-<!-- ♈ Aries -->
+<!-- Aries -->
 <div class="book">
 <img src="aries">
 <h3>Aries</h3>
+<p>🔥 Bold, fearless & energetic personality insights</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_WkkdcYik0c7Z0" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♉ Taurus -->
+<!-- Taurus -->
 <div class="book">
 <img src="taurus">
 <h3>Taurus</h3>
+<p>💎 Stability, luxury & deep emotional strength</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_ZO1cL2kuNOV7S" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♊ Gemini -->
+<!-- Gemini -->
 <div class="book">
 <img src="gemini">
 <h3>Gemini</h3>
+<p>🧠 Dual nature, intelligence & communication secrets</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_32hhAKlzJAc3a" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♋ Cancer -->
+<!-- Cancer -->
 <div class="book">
 <img src="cancer">
 <h3>Cancer</h3>
+<p>❤️ Emotional depth, intuition & hidden strengths</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_7E8IDOvDc5S1x" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♌ Leo -->
+<!-- Leo -->
 <div class="book">
 <img src="leo">
 <h3>Leo</h3>
+<p>👑 Leadership, confidence & powerful charisma</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_phXGPFns8Kmjj" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♍ Virgo -->
+<!-- Virgo -->
 <div class="book">
 <img src="virgo">
 <h3>Virgo</h3>
+<p>📊 Perfection, logic & deep analytical thinking</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_UMCwbKDI5zgtp" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♎ Libra -->
+<!-- Libra -->
 <div class="book">
 <img src="libra">
 <h3>Libra</h3>
+<p>⚖️ Balance, beauty & relationship mastery</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_1S4ZAIVrQOhsk" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♏ Scorpio -->
+<!-- Scorpio -->
 <div class="book">
 <img src="scorpio">
 <h3>Scorpio</h3>
+<p>🦂 Mystery, power & deep transformation</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_97NYWq9zq6JpP" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♐ Sagittarius -->
+<!-- Sagittarius -->
 <div class="book">
 <img src="sagutarius">
 <h3>Sagittarius</h3>
+<p>🏹 Freedom, adventure & truth seeking</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_OfBnh2RoOB7jN" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♑ Capricorn -->
+<!-- Capricorn -->
 <div class="book">
 <img src="capricorn">
 <h3>Capricorn</h3>
+<p>🏔 Discipline, ambition & success strategies</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_atA5xu7aN0kkX" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♒ Aquarius -->
+<!-- Aquarius -->
 <div class="book">
 <img src="AQuaruis">
 <h3>Aquarius</h3>
+<p>⚡ Innovation, independence & unique thinking</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_EM7Yxpn9Br7Gd" target="_blank"><button>Buy Now</button></a>
 </div>
 
-<!-- ♓ Pisces -->
+<!-- Pisces -->
 <div class="book">
 <img src="pisces">
 <h3>Pisces</h3>
+<p>🌊 Dreams, intuition & emotional intelligence</p>
+<div class="old-price">$67</div>
 <div class="price">$47</div>
+<div class="save">SAVE 29%</div>
 <a href="https://whop.com/checkout/plan_mChkGhZ3XI60z" target="_blank"><button>Buy Now</button></a>
 </div>
 
 </div>
+
+<!-- 🔔 Popup -->
+<div class="popup" id="popup">Someone bought Cancer Book!</div>
+
+<script>
+// ⭐ stars
+for(let i=0;i<80;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(s);
+}
+
+// 🔔 fake purchases
+const popup=document.getElementById("popup");
+const books=["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"];
+
+setInterval(()=>{
+  let b=books[Math.floor(Math.random()*books.length)];
+  popup.innerText="🔥 Someone just bought "+b+" Book!";
+  popup.style.display="block";
+  setTimeout(()=>popup.style.display="none",4000);
+},8000);
+</script>
 
 </body>
 </html>
