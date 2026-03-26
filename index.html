@@ -1,53 +1,104 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>كتب الأبراج الفاخرة</title>
+<title>Luxury Horoscope Books</title>
 <style>
-body {font-family: Arial; margin:0; background:#0b0c1a; color:white;}
-.hero {text-align:center; padding:80px 20px; background:linear-gradient(135deg,#1a1c3a,#0b0c1a);} 
-.hero h1 {font-size:40px; color:#ffd700;}
-.hero p {font-size:18px; margin:20px 0;}
-.btn {background:#ffd700; color:black; padding:15px 30px; border:none; font-size:18px; cursor:pointer; border-radius:10px;}
-.section {padding:60px 20px; text-align:center;}
-.cards {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
-.card {background:#1a1c3a; padding:20px; border-radius:15px; width:250px;}
-.price {font-size:28px; color:#ffd700; margin:20px 0;}
-.footer {text-align:center; padding:30px; background:#111;}
+body {margin:0; font-family:Arial, sans-serif; background:#0b0c1a; color:white;}
+
+.hero {text-align:center; padding:100px 20px; background:linear-gradient(135deg,#1a1c3a,#0b0c1a);} 
+.hero h1 {font-size:48px; color:#ffd700;}
+.hero p {font-size:20px; margin:20px 0;}
+
+.btn {background:#ffd700; color:black; padding:15px 35px; border:none; font-size:18px; cursor:pointer; border-radius:12px;}
+
+.section {padding:80px 20px; text-align:center;}
+
+.books {display:flex; flex-wrap:wrap; justify-content:center; gap:40px;}
+
+.book-card {background:#1a1c3a; padding:20px; border-radius:20px; width:260px; transition:0.3s; position:relative;}
+.book-card:hover {transform:translateY(-10px) scale(1.05);} 
+
+.book-img {width:100%; height:320px; background:#222; border-radius:15px; display:flex; align-items:center; justify-content:center; overflow:hidden; animation:float 4s ease-in-out infinite;}
+.book-img img {width:100%; height:100%; object-fit:cover;}
+
+@keyframes float {
+0% {transform: translateY(0px);} 
+50% {transform: translateY(-15px);} 
+100% {transform: translateY(0px);} 
+}
+
+.price {font-size:26px; color:#ffd700; margin:15px 0;}
+
+.footer {text-align:center; padding:40px; background:#111;}
+
 </style>
 </head>
 <body>
 
 <div class="hero">
-<h1>📖 كتاب الأبراج الفاخر</h1>
-<p>اكتشف شخصيتك، نقاط قوتك وضعفك بطريقة جذابة واحترافية</p>
-<button class="btn">اشتري الآن</button>
+<h1>✨ Luxury Horoscope Books</h1>
+<p>Discover your personality, strengths & secrets in a premium visual experience</p>
+<button class="btn">Shop Now</button>
 </div>
 
 <div class="section">
-<h2>✨ ماذا يحتوي الكتاب؟</h2>
-<div class="cards">
-<div class="card">🔥 تحليل كامل لكل برج</div>
-<div class="card">🌟 الإيجابيات والسلبيات</div>
-<div class="card">💫 نصائح شخصية</div>
-<div class="card">📚 تصميم فاخر وجذاب</div>
+<h2>🌌 Our Collection</h2>
+<div class="books">
+
+<div class="book-card">
+<div class="book-img">Add Image Here</div>
+<h3>Aries Book</h3>
+<div class="price">$47</div>
+<button class="btn">Buy Now</button>
+</div>
+
+<div class="book-card">
+<div class="book-img">Add Image Here</div>
+<h3>Taurus Book</h3>
+<div class="price">$47</div>
+<button class="btn">Buy Now</button>
+</div>
+
+<div class="book-card">
+<div class="book-img">Add Image Here</div>
+<h3>Gemini Book</h3>
+<div class="price">$47</div>
+<button class="btn">Buy Now</button>
+</div>
+
+<div class="book-card">
+<div class="book-img">Add Image Here</div>
+<h3>Cancer Book</h3>
+<div class="price">$47</div>
+<button class="btn">Buy Now</button>
+</div>
+
+<div class="book-card">
+<div class="book-img">Add Image Here</div>
+<h3>Leo Book</h3>
+<div class="price">$47</div>
+<button class="btn">Buy Now</button>
+</div>
+
+<div class="book-card">
+<div class="book-img">Add Image Here</div>
+<h3>Virgo Book</h3>
+<div class="price">$47</div>
+<button class="btn">Buy Now</button>
+</div>
+
 </div>
 </div>
 
 <div class="section">
-<h2>💬 لماذا هذا الكتاب؟</h2>
-<p>لأنه ليس مجرد معلومات… بل تجربة بصرية ونفسية تجعلك تفهم نفسك والآخرين بشكل أعمق</p>
-</div>
-
-<div class="section">
-<h2>💰 السعر</h2>
-<div class="price">$9.99 فقط</div>
-<button class="btn">احصل عليه الآن</button>
+<h2>💬 Why Choose Our Books?</h2>
+<p>Not just information… a premium visual and emotional experience designed to attract and inspire.</p>
 </div>
 
 <div class="footer">
-<p>© 2026 جميع الحقوق محفوظة</p>
+<p>© 2026 All Rights Reserved</p>
 </div>
 
 </body>
