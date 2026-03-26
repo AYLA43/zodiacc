@@ -1,211 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Zodiac Cosmic Books</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كتب الأبراج الفاخرة</title>
 <style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: radial-gradient(circle at top, #0f0f1a, #050510);
-    color: white;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.3;
-    z-index: -1;
-  }
-  .hero {
-    text-align: center;
-    padding: 80px 20px;
-  }
-  .hero h1 {
-    font-size: 42px;
-    background: linear-gradient(45deg, #a29bfe, #74b9ff);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-  .hero p {
-    opacity: 0.8;
-    font-size: 1.2rem;
-  }
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 25px;
-    padding: 30px 40px;
-  }
-  .book {
-    background: rgba(255,255,255,0.05);
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    animation: float 4s ease-in-out infinite;
-    transition: transform 0.3s ease;
-  }
-  .book:hover {
-    transform: scale(1.08);
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  .book img {
-    width: 100%;
-    border-radius: 10px;
-    max-height: 320px;
-    object-fit: cover;
-  }
-  .price {
-    color: #00ffcc;
-    font-size: 18px;
-    margin: 8px 0 4px 0;
-  }
-  .btn {
-    display: inline-block;
-    padding: 8px 15px;
-    background: linear-gradient(45deg, #6c5ce7, #00cec9);
-    border-radius: 6px;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-  }
-  .reviews, .faq {
-    padding: 50px 20px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .reviews h2, .faq h2 {
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  .review {
-    margin-bottom: 15px;
-    font-style: italic;
-    opacity: 0.85;
-  }
-  .faq-item {
-    margin-bottom: 15px;
-  }
-  .faq-item h3 {
-    color: #74b9ff;
-    cursor: pointer;
-    user-select: none;
-  }
-  .faq-item p {
-    margin-top: 6px;
-    opacity: 0.8;
-  }
-  footer {
-    text-align: center;
-    padding: 15px;
-    font-size: 0.85rem;
-    opacity: 0.5;
-  }
+body {font-family: Arial; margin:0; background:#0b0c1a; color:white;}
+.hero {text-align:center; padding:80px 20px; background:linear-gradient(135deg,#1a1c3a,#0b0c1a);} 
+.hero h1 {font-size:40px; color:#ffd700;}
+.hero p {font-size:18px; margin:20px 0;}
+.btn {background:#ffd700; color:black; padding:15px 30px; border:none; font-size:18px; cursor:pointer; border-radius:10px;}
+.section {padding:60px 20px; text-align:center;}
+.cards {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+.card {background:#1a1c3a; padding:20px; border-radius:15px; width:250px;}
+.price {font-size:28px; color:#ffd700; margin:20px 0;}
+.footer {text-align:center; padding:30px; background:#111;}
 </style>
 </head>
 <body>
 
-<section class="hero">
-  <h1>✨ Zodiac Cosmic Books ✨</h1>
-  <p>Unlock your destiny through the 12 zodiac signs</p>
-</section>
+<div class="hero">
+<h1>📖 كتاب الأبراج الفاخر</h1>
+<p>اكتشف شخصيتك، نقاط قوتك وضعفك بطريقة جذابة واحترافية</p>
+<button class="btn">اشتري الآن</button>
+</div>
 
-<section class="container">
+<div class="section">
+<h2>✨ ماذا يحتوي الكتاب؟</h2>
+<div class="cards">
+<div class="card">🔥 تحليل كامل لكل برج</div>
+<div class="card">🌟 الإيجابيات والسلبيات</div>
+<div class="card">💫 نصائح شخصية</div>
+<div class="card">📚 تصميم فاخر وجذاب</div>
+</div>
+</div>
 
-  <div class="book">
-    <img src="aries.jpg" alt="Aries Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
+<div class="section">
+<h2>💬 لماذا هذا الكتاب؟</h2>
+<p>لأنه ليس مجرد معلومات… بل تجربة بصرية ونفسية تجعلك تفهم نفسك والآخرين بشكل أعمق</p>
+</div>
 
-  <div class="book">
-    <img src="taurus.jpg" alt="Taurus Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
+<div class="section">
+<h2>💰 السعر</h2>
+<div class="price">$9.99 فقط</div>
+<button class="btn">احصل عليه الآن</button>
+</div>
 
-  <div class="book">
-    <img src="gemini.jpg" alt="Gemini Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-  <div class="book">
-    <img src="leo.jpg" alt="Leo Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-  <div class="book">
-    <img src="virgo.jpg" alt="Virgo Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-  <div class="book">
-    <img src="libra.jpg" alt="Libra Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-  <div class="book">
-    <img src="sagittarius.jpg" alt="Sagittarius Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-  <div class="book">
-    <img src="capricorn.jpg" alt="Capricorn Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-  <div class="book">
-    <img src="pisces.jpg" alt="Pisces Book Cover" />
-    <div class="price">$47</div>
-    <a class="btn" href="#" target="_blank" rel="noopener">Buy Now</a>
-  </div>
-
-</section>
-
-<section class="reviews">
-  <h2>⭐ Reviews</h2>
-  <div class="review">"Absolutely mind-blowing insights!" ⭐⭐⭐⭐⭐</div>
-  <div class="review">"I felt understood for the first time." ⭐⭐⭐⭐⭐</div>
-  <div class="review">"Worth every dollar!" ⭐⭐⭐⭐⭐</div>
-</section>
-
-<section class="faq">
-  <h2>❓ FAQ</h2>
-
-  <div class="faq-item">
-    <h3>Do I get instant access?</h3>
-    <p>Yes, immediately after purchase.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Are all zodiac signs included?</h3>
-    <p>Currently, 9 signs are available with more coming soon.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Can I buy multiple books?</h3>
-    <p>Yes, you can purchase any combination of the available books.</p>
-  </div>
-
-</section>
-
-<footer>
-  <p>© 2026 Zodiac Cosmic Books</p>
-</footer>
+<div class="footer">
+<p>© 2026 جميع الحقوق محفوظة</p>
+</div>
 
 </body>
 </html>
