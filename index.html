@@ -9,14 +9,13 @@
 body {
   margin:0;
   font-family:Arial;
-  background:#120018; /* Dark purple background */
+  background:#120018;
   color:white;
   text-align:center;
   overflow-x:hidden;
-  position:relative;
 }
 
-/* ⭐ Stars in background (subtle twinkle) */
+/* Stars */
 .star {
   position:fixed;
   width:2px;
@@ -24,7 +23,6 @@ body {
   background:white;
   opacity:0.7;
   animation: twinkle 3s infinite alternate;
-  z-index:0;
 }
 @keyframes twinkle {
   from {opacity:0.3;}
@@ -35,27 +33,23 @@ body {
 .hero {
   padding:80px 20px;
   background:linear-gradient(135deg,#2a003f,#120018);
-  position:relative;
-  z-index:1;
 }
-.hero h1 {color:#ffd700; font-size:42px;}
+.hero h1 {color:#ffd700;}
 
-/* Books container */
+/* Books */
 .books {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:25px;
   padding:40px;
-  position:relative;
-  z-index:1;
 }
 
-/* Floating animation for books */
+/* Floating */
 @keyframes float {
-  0% {transform: translateY(0px);}
-  50% {transform: translateY(-10px);}
-  100% {transform: translateY(0px);}
+  0% {transform:translateY(0);}
+  50% {transform:translateY(-10px);}
+  100% {transform:translateY(0);}
 }
 
 .book {
@@ -63,55 +57,47 @@ body {
   width:230px;
   padding:15px;
   border-radius:15px;
-  animation: float 4s ease-in-out infinite;
-  transition:0.3s;
-  position:relative;
-  z-index:1;
+  animation:float 4s infinite ease-in-out;
 }
-.book:hover {transform:scale(1.05);}
 
 .book img {
   width:100%;
   height:280px;
-  object-fit:cover;
   border-radius:10px;
 }
 
-.old-price {
-  text-decoration:line-through;
-  color:#aaa;
-  font-size:14px;
-}
-.price {color:#ffd700; font-size:20px;}
-.save {color:#00ffcc; font-size:14px;}
+.old-price {text-decoration:line-through;color:#aaa;}
+.price {color:#ffd700;font-size:20px;}
+.save {color:#00ffcc;}
 
-/* Button */
 button {
   background:#ffd700;
   border:none;
-  padding:10px 15px;
-  cursor:pointer;
+  padding:10px;
   border-radius:5px;
+  cursor:pointer;
+}
+
+/* Countdown */
+.countdown {
+  background:#ff4d4d;
+  padding:5px;
+  border-radius:5px;
+  margin:5px 0;
   font-weight:bold;
 }
 
-/* Urgency and Reviews */
-.urgency {
-  background:#ff4d4d;
-  color:white;
-  padding:5px 10px;
-  border-radius:5px;
+/* Popup */
+.popup {
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#ffd700;
+  color:black;
+  padding:12px 20px;
+  border-radius:10px;
+  display:none;
   font-weight:bold;
-  margin:5px 0;
-}
-.reviews {
-  color:#ffd700;
-  margin:5px 0;
-}
-.left {
-  color:#00ffcc;
-  font-weight:bold;
-  margin:5px 0;
 }
 </style>
 </head>
@@ -120,12 +106,12 @@ button {
 
 <div class="hero">
 <h1>✨ Zodiac Books Collection</h1>
-<p>Discover the secrets of your sign</p>
+<p>Discover your true self & unlock your future</p>
+<div class="countdown" id="countdown">Loading offer...</div>
 </div>
 
 <div class="books">
 
-<!-- Generate all signs dynamically -->
 <script>
 const signs = [
 "Aries","Taurus","Gemini","Cancer","Leo","Virgo",
@@ -133,18 +119,18 @@ const signs = [
 ];
 
 const desc = {
-Aries:"🔥 Made for true Aries. Learn how to control your impulsive energy, win in life, and stay ahead of everyone.",
-Taurus:"💎 Built for Taurus minds. Learn how to attract money, comfort, and long-term success.",
-Gemini:"🧠 Understand your dual personality like never before. Learn how to use your communication skills to influence anyone.",
-Cancer:"❤️ Dive deep into your emotions and understand your true power. Learn how to protect your energy.",
-Leo:"👑 This is your power guide. Learn how to dominate attention and lead naturally.",
-Virgo:"📊 Master your mind and organize your life like never before. Turn perfection into real results.",
-Libra:"⚖️ Learn how to master relationships and attract the right people.",
-Scorpio:"🦂 Discover your hidden power and emotional depth. Control your intensity and use it to win.",
-Sagittarius:"🏹 Learn how to live freely without limits. Discover your true purpose.",
-Capricorn:"🏔 Learn how to build success step by step. Turn discipline into achievements.",
-Aquarius:"⚡ Unlock your unique thinking and stand out. Turn ideas into powerful results.",
-Pisces:"🌊 Dive into your imagination and emotional world. Use your intuition to guide your life."
+Aries:"🔥 You always feel like you were meant for more. This book shows you exactly how to use your energy to win in life and stop wasting your potential.",
+Taurus:"💎 You crave stability and money, but something blocks you. This reveals how to attract wealth and build the life you deserve.",
+Gemini:"🧠 Your mind never stops. This book helps you control it, communicate better, and turn your thoughts into power.",
+Cancer:"❤️ You feel everything deeply. This guide helps you protect your energy and finally stop getting hurt so easily.",
+Leo:"👑 You know you're special. This book shows you how to fully step into your power and become impossible to ignore.",
+Virgo:"📊 You overthink a lot. This will help you organize your life, focus your mind, and finally feel in control.",
+Libra:"⚖️ You want love and balance. This book teaches you how to attract the right people and stop choosing wrong ones.",
+Scorpio:"🦂 You feel things others don't. This reveals how to use your intensity as power instead of letting it control you.",
+Sagittarius:"🏹 You want freedom. This shows you how to live fully, follow your purpose, and stop feeling stuck.",
+Capricorn:"🏔 You want success. This gives you the exact mindset and discipline to build real results.",
+Aquarius:"⚡ You think differently. This helps you turn your ideas into something powerful and valuable.",
+Pisces:"🌊 You live in your emotions. This shows you how to use your intuition instead of being overwhelmed."
 };
 
 signs.forEach(sign=>{
@@ -153,12 +139,10 @@ signs.forEach(sign=>{
     <img src="${sign.toLowerCase()}">
     <h3>${sign}</h3>
     <p>${desc[sign]}</p>
-    <div class="urgency">⏰ Hurry! Sale ends soon</div>
-    <div class="reviews">⭐️⭐️⭐️⭐️⭐️ 50 Reviews</div>
-    <div class="left">Only 3 copies left!</div>
-    <div class="old-price">$67</div>
+    <p>⚠️ After reading this, you will understand yourself in a way most people never do.</p>
+    <div class="old-price">$89</div>
     <div class="price">$56.87</div>
-    <div class="save">SAVE 29%</div>
+    <div class="save">Limited Offer</div>
     <a href="#"><button>Buy Now</button></a>
   </div>
   `);
@@ -167,8 +151,11 @@ signs.forEach(sign=>{
 
 </div>
 
-<!-- Stars in background -->
+<!-- Popup -->
+<div class="popup" id="popup"></div>
+
 <script>
+// Stars
 for(let i=0;i<100;i++){
   let s=document.createElement("div");
   s.className="star";
@@ -176,6 +163,27 @@ for(let i=0;i<100;i++){
   s.style.top=Math.random()*100+"%";
   document.body.appendChild(s);
 }
+
+// Fake purchases popup
+const popup=document.getElementById("popup");
+
+setInterval(()=>{
+  let randomSign=signs[Math.floor(Math.random()*signs.length)];
+  popup.innerText="🔥 Someone just bought "+randomSign+" Book!";
+  popup.style.display="block";
+  setTimeout(()=>popup.style.display="none",4000);
+},6000);
+
+// Countdown (10 minutes reset)
+let time=600;
+setInterval(()=>{
+  let m=Math.floor(time/60);
+  let s=time%60;
+  document.getElementById("countdown").innerText=
+  "⏰ Offer ends in "+m+":"+ (s<10?"0":"")+s;
+  time--;
+  if(time<=0) time=600;
+},1000);
 </script>
 
 </body>
