@@ -9,44 +9,64 @@
 body {
   margin:0;
   font-family:Arial;
-  background:#0b0c1a;
+  background:#120018; /* Dark purple background */
   color:white;
   text-align:center;
   overflow-x:hidden;
+  position:relative;
 }
 
+/* ⭐ Stars in background (subtle twinkle) */
 .star {
   position:fixed;
   width:2px;
   height:2px;
   background:white;
-  animation: moveStars linear infinite;
+  opacity:0.7;
+  animation: twinkle 3s infinite alternate;
+  z-index:0;
 }
-@keyframes moveStars {
-  from {transform: translateY(0);}
-  to {transform: translateY(100vh);}
+@keyframes twinkle {
+  from {opacity:0.3;}
+  to {opacity:1;}
 }
 
+/* Hero */
 .hero {
   padding:80px 20px;
-  background:linear-gradient(135deg,#1a1c3a,#0b0c1a);
+  background:linear-gradient(135deg,#2a003f,#120018);
+  position:relative;
+  z-index:1;
 }
 .hero h1 {color:#ffd700; font-size:42px;}
 
+/* Books container */
 .books {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:25px;
   padding:40px;
+  position:relative;
+  z-index:1;
+}
+
+/* Floating animation for books */
+@keyframes float {
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0px);}
 }
 
 .book {
-  background:#1a1c3a;
+  background:#1e0030;
   width:230px;
   padding:15px;
   border-radius:15px;
+  animation: float 4s ease-in-out infinite;
   transition:0.3s;
+  position:relative;
+  z-index:1;
 }
 .book:hover {transform:scale(1.05);}
 
@@ -63,11 +83,9 @@ body {
   font-size:14px;
 }
 .price {color:#ffd700; font-size:20px;}
-.save {
-  color:#00ffcc;
-  font-size:14px;
-}
+.save {color:#00ffcc; font-size:14px;}
 
+/* Button */
 button {
   background:#ffd700;
   border:none;
@@ -77,16 +95,23 @@ button {
   font-weight:bold;
 }
 
-.popup {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#ffd700;
-  color:black;
-  padding:12px 20px;
-  border-radius:10px;
-  display:none;
+/* Urgency and Reviews */
+.urgency {
+  background:#ff4d4d;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
   font-weight:bold;
+  margin:5px 0;
+}
+.reviews {
+  color:#ffd700;
+  margin:5px 0;
+}
+.left {
+  color:#00ffcc;
+  font-weight:bold;
+  margin:5px 0;
 }
 </style>
 </head>
@@ -100,45 +125,57 @@ button {
 
 <div class="books">
 
-<!-- Example Book (apply same change to all) -->
-<div class="book">
-<img src="aries">
-<h3>Aries</h3>
-<p>🔥 Bold, fearless & energetic personality insights</p>
-<p>🔥 Made for true Aries. Learn how to control your impulsive energy, win in life, and stay ahead of everyone.</p>
-<p>💥 Discover how to turn your confidence into real success.</p>
-<p>⚠️ Warning: This will unlock your unstoppable side.</p>
-<div class="old-price">$67</div>
-<div class="price">$56.87</div>
-<div class="save">SAVE 29%</div>
-<a href="#"><button>Buy Now</button></a>
-</div>
-
-<!-- كرر نفس التعديل (56.87$) لباقي الأبراج -->
-
-</div>
-
-<div class="popup" id="popup">Someone bought Cancer Book!</div>
-
+<!-- Generate all signs dynamically -->
 <script>
-for(let i=0;i<80;i++){
+const signs = [
+"Aries","Taurus","Gemini","Cancer","Leo","Virgo",
+"Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"
+];
+
+const desc = {
+Aries:"🔥 Made for true Aries. Learn how to control your impulsive energy, win in life, and stay ahead of everyone.",
+Taurus:"💎 Built for Taurus minds. Learn how to attract money, comfort, and long-term success.",
+Gemini:"🧠 Understand your dual personality like never before. Learn how to use your communication skills to influence anyone.",
+Cancer:"❤️ Dive deep into your emotions and understand your true power. Learn how to protect your energy.",
+Leo:"👑 This is your power guide. Learn how to dominate attention and lead naturally.",
+Virgo:"📊 Master your mind and organize your life like never before. Turn perfection into real results.",
+Libra:"⚖️ Learn how to master relationships and attract the right people.",
+Scorpio:"🦂 Discover your hidden power and emotional depth. Control your intensity and use it to win.",
+Sagittarius:"🏹 Learn how to live freely without limits. Discover your true purpose.",
+Capricorn:"🏔 Learn how to build success step by step. Turn discipline into achievements.",
+Aquarius:"⚡ Unlock your unique thinking and stand out. Turn ideas into powerful results.",
+Pisces:"🌊 Dive into your imagination and emotional world. Use your intuition to guide your life."
+};
+
+signs.forEach(sign=>{
+  document.write(`
+  <div class="book">
+    <img src="${sign.toLowerCase()}">
+    <h3>${sign}</h3>
+    <p>${desc[sign]}</p>
+    <div class="urgency">⏰ Hurry! Sale ends soon</div>
+    <div class="reviews">⭐️⭐️⭐️⭐️⭐️ 50 Reviews</div>
+    <div class="left">Only 3 copies left!</div>
+    <div class="old-price">$67</div>
+    <div class="price">$56.87</div>
+    <div class="save">SAVE 29%</div>
+    <a href="#"><button>Buy Now</button></a>
+  </div>
+  `);
+});
+</script>
+
+</div>
+
+<!-- Stars in background -->
+<script>
+for(let i=0;i<100;i++){
   let s=document.createElement("div");
   s.className="star";
   s.style.left=Math.random()*100+"%";
   s.style.top=Math.random()*100+"%";
-  s.style.animationDuration=(3+Math.random()*5)+"s";
   document.body.appendChild(s);
 }
-
-const popup=document.getElementById("popup");
-const books=["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"];
-
-setInterval(()=>{
-  let b=books[Math.floor(Math.random()*books.length)];
-  popup.innerText="🔥 Someone just bought "+b+" Book!";
-  popup.style.display="block";
-  setTimeout(()=>popup.style.display="none",4000);
-},8000);
 </script>
 
 </body>
